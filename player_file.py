@@ -87,7 +87,7 @@ class RobotPlayer(Player):
         best_score = float('-inf') * player_index
         minimum_levels_took_for_player_in_current_recursion_call_to_get_current_best_score = float('inf')
         # print(f" level = {level}   self.minimum_levels_took_for_the_player_to_find_a_win_from_the_first_window = {self.minimum_levels_took_for_the_player_to_find_a_win_from_the_first_window}")
-        # if level < self.minimum_levels_took_for_the_player_to_find_a_win_from_the_first_window: # for some reason, the call count is the same even without this statement
+        # if level < self.minimum_levels_took_for_the_player_to_find_a_win_from_the_first_window: # the call count is the same even without this statement
         for i in range(3):
             for j in range(3):
                 if board[i][j] == game.available_mark:
@@ -117,42 +117,4 @@ class RobotPlayer(Player):
 
 
 
-    # def minimax(self, game, board, player_index, level):
-    #
-    #     player = self.players_dict[player_index] # look at the player list to see how to choose the computer one, create a  new index to not mess up the game's one
-    #     if game.player_won(board, player.mark, do_prints=False):
-    #          return player_index, level # we return 1 and -1 depending on the player and we also used these numbers to choose the correct player each time so we can just return the index.
-    #
-    #     elif game.ended_in_tie(board, do_prints=False):
-    #         return 0, level
-    #
-    #     player_index = -player_index
-    #     player = self.players_dict[player_index]
-    #     best_score = float('-inf') * player_index
-    #     for i in range(3):
-    #         for j in range(3):
-    #             if board[i][j] == game.available_mark:
-    #                 board[i][j] = player.mark  # it's ok to change the original board and just cancel the marking in this round because we're not continuing to the next round of the loop until all the recursion windows close.
-    #                 score, number_of_levels = self.minimax(game, board, player_index, level=level+1)
-    #                 board[i][j] = game.available_mark
-    #                 if score * player_index > best_score * player_index:
-    #
-    #                     if score * player_index > 0 and number_of_levels == level + 1:  # if the score is 1 while maximizing or -1 while minimizing AND we got this score with the lowest possible number of levels
-    #                         return score, number_of_levels
-    #                     min_number_of_levels = number_of_levels
-    #                     best_score = score
-    #
-    #                 elif score == best_score and number_of_levels < min_number_of_levels:
-    #                     if score * player_index > 0 and number_of_levels == level + 1:  # if the score is 1 while maximizing or -1 while minimizing AND we got this score with the lowest possible number of levels
-    #                         return score, number_of_levels
-    #                     min_number_of_levels = number_of_levels
-    #
-    #     return best_score, min_number_of_levels
-
-
-
-
-
-
-
-
+ 
